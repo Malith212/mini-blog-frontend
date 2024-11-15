@@ -19,16 +19,19 @@ const AddComment = ({ postId }) => {
   };
 
   return (
-    <div>
-      <h3>Add Comment</h3>
-      <form onSubmit={handleSubmit}>
+    <div className="mt-6">
+      <h3 className="text-xl font-medium text-gray-700">Add Comment</h3>
+      <form onSubmit={handleSubmit} className="mt-2">
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           placeholder="Your comment"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
-        <button type="submit">Add Comment</button>
+        <button type="submit" className="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+          Add Comment
+        </button>
       </form>
     </div>
   );

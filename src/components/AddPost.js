@@ -22,23 +22,27 @@ const AddPost = () => {
   };
 
   return (
-    <div>
-      <h2>Add New Post</h2>
+    <div className="max-w-2xl mx-auto mt-12 bg-white shadow-md rounded-lg p-6">
+      <h2 className="text-3xl font-semibold text-center mb-6">Add New Post</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Post Title"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Post Content"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
-        <button type="submit">Create Post</button>
+        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+          Create Post
+        </button>
       </form>
     </div>
   );
