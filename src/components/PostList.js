@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import AddComment from './AddComment';
 
-const PostList = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/posts')
-      .then(response => {
-        setPosts(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching posts:', error);
-      });
-  }, []);
-
+const PostList = ({ posts }) => {
   return (
     <div className="mt-8">
       <h2 className="text-3xl font-semibold text-center mb-6">Blog Posts</h2>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddPost = () => {
+const AddPost = ({ setPosts, posts }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
@@ -13,8 +13,16 @@ const AddPost = () => {
     })
     .then(response => {
       alert(response.data.message);
-      setTitle('');
-      setContent('');
+      // Update posts state in real-time
+      const newPost = {
+        id: response.data.id, // Assuming the backend returns the new post ID
+        title,
+        content,
+        comments: [], // New posts start without comments
+      };
+      setPosts([newPost, ...posts]); // Add new post at the beginning
+      setTitle(''); // Clear input
+      setContent(''); // Clear input
     })
     .catch(error => {
       console.error('Error creating post:', error);
